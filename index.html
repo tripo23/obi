@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obi — Manual de marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#131315;
+    --bg-soft:#1c1c20;
+    --bg-card:#1a1a1f;
+    --line:#2a2a30;
+    --teal:#21dbaa;
+    --violet:#8a5cf2;
+    --ink:#f2f2f4;
+    --muted:#9a9aa4;
+    --faint:#65656f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .grad-text{
+    background:linear-gradient(115deg,var(--teal),var(--violet));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* HERO */
+  .hero{
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:30px;
+    padding:80px 28px 60px;
+    position:relative;
+  }
+  .hero-logo{ animation:floaty 6s ease-in-out infinite; }
+  @keyframes floaty{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1{
+    font-family:'Sora',sans-serif;
+    font-size:clamp(64px,16vw,140px);
+    font-weight:800;
+    letter-spacing:-.04em;
+    line-height:.9;
+  }
+  .hero .tag{
+    font-size:clamp(15px,2.4vw,19px);
+    color:var(--muted);
+    max-width:440px;
+    font-weight:400;
+  }
+  .hero .eyebrow{
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--faint);
+    font-weight:600;
+  }
+  .scroll-hint{
+    position:absolute;
+    bottom:28px;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--faint);
+    animation:floaty 2.6s ease-in-out infinite;
+  }
+
+  /* SECTION */
+  section{ padding:72px 0; border-top:1px solid var(--line); }
+  .sec-num{
+    font-family:'Sora',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.12em;
+    color:var(--teal);
+    margin-bottom:14px;
+    display:block;
+  }
+  h2{
+    font-family:'Sora',sans-serif;
+    font-size:clamp(28px,5vw,42px);
+    font-weight:700;
+    letter-spacing:-.02em;
+    line-height:1.08;
+    margin-bottom:24px;
+  }
+  h3{
+    font-family:'Sora',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+    letter-spacing:-.01em;
+  }
+  p{ color:var(--muted); font-size:16.5px; margin-bottom:18px; }
+  p strong{ color:var(--ink); font-weight:600; }
+  p.lead{ font-size:20px; color:var(--ink); line-height:1.5; }
+
+  .cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; margin-top:36px; }
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 24px;
+  }
+  .card .ic{
+    width:42px;height:42px;border-radius:11px;
+    background:linear-gradient(135deg,rgba(33,219,170,.16),rgba(138,92,242,.16));
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+    font-size:20px;
+  }
+  .card p{ font-size:15px; margin-bottom:0; }
+
+  /* ISOTIPO breakdown */
+  .iso-stage{
+    display:flex; flex-wrap:wrap; align-items:center; gap:48px;
+    justify-content:center;
+    margin-top:20px;
+  }
+  .iso-anno{ flex:1; min-width:260px; }
+  .iso-anno .item{ display:flex; gap:14px; margin-bottom:20px; align-items:flex-start; }
+  .iso-anno .dot{
+    width:11px;height:11px;border-radius:50%;flex-shrink:0;margin-top:6px;
+  }
+  .iso-anno .item p{ margin:0; font-size:15px; }
+  .iso-anno .item h4{ font-family:'Sora',sans-serif; font-size:15px; font-weight:600; color:var(--ink); margin-bottom:3px; }
+
+  /* PALETTE */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-top:32px; }
+  .sw{ border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+  .sw .chip{ height:96px; }
+  .sw .meta{ padding:14px 16px; background:var(--bg-card); }
+  .sw .meta .name{ font-family:'Sora',sans-serif; font-weight:600; font-size:14px; margin-bottom:2px; }
+  .sw .meta .hex{ font-family:ui-monospace,monospace; font-size:13px; color:var(--muted); }
+  .sw .meta .role{ font-size:12px; color:var(--faint); margin-top:6px; }
+
+  /* DO / DONT */
+  .dd{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
+  @media(max-width:640px){ .dd{ grid-template-columns:1fr; } }
+  .dd-col h3{ display:flex; align-items:center; gap:10px; }
+  .dd-col .badge{ width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700; }
+  .dd-col.do .badge{ background:rgba(33,219,170,.18); color:var(--teal); }
+  .dd-col.dont .badge{ background:rgba(242,92,92,.18); color:#f25c5c; }
+  .dd-list{ list-style:none; margin-top:16px; }
+  .dd-list li{ font-size:15px; color:var(--muted); padding:11px 0; border-bottom:1px solid var(--line); display:flex; gap:10px; }
+  .dd-list li::before{ content:""; width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:8px; }
+  .dd-col.do .dd-list li::before{ background:var(--teal); }
+  .dd-col.dont .dd-list li::before{ background:#f25c5c; }
+
+  /* VOICE examples */
+  .voice{ display:flex; flex-direction:column; gap:18px; margin-top:32px; }
+  .vrow{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media(max-width:640px){ .vrow{ grid-template-columns:1fr; } }
+  .bubble{ border-radius:14px; padding:18px 20px; font-size:15px; line-height:1.55; }
+  .bubble.good{ background:rgba(33,219,170,.08); border:1px solid rgba(33,219,170,.25); }
+  .bubble.bad{ background:rgba(242,92,92,.06); border:1px solid rgba(242,92,92,.2); color:var(--muted); }
+  .bubble .lbl{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; margin-bottom:8px; display:block; }
+  .bubble.good .lbl{ color:var(--teal); }
+  .bubble.bad .lbl{ color:#f25c5c; }
+
+  /* USE CASES */
+  .uses{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:32px; }
+  .use{ background:var(--bg-card); border:1px solid var(--line); border-radius:14px; padding:22px; }
+  .use .q{ color:var(--ink); font-weight:500; font-size:15px; font-style:italic; margin-bottom:10px; }
+  .use .a{ font-size:14px; color:var(--muted); margin:0; }
+
+  /* ATTRS */
+  .attrs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-top:32px; }
+  .attr{ background:var(--bg); padding:28px 24px; }
+  .attr .n{ font-family:'Sora',sans-serif; font-size:32px; font-weight:800; margin-bottom:10px; }
+  .attr h3{ margin-bottom:8px; }
+  .attr p{ font-size:14.5px; margin:0; }
+
+  /* ecosystem */
+  .eco{ display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+  .eco .pill{ padding:10px 20px; border-radius:999px; border:1px solid var(--line); background:var(--bg-card); font-size:14px; color:var(--muted); }
+  .eco .pill.self{ border-color:var(--teal); color:var(--teal); font-weight:600; background:rgba(33,219,170,.08); }
+
+  /* discard table */
+  .disc{ margin-top:28px; }
+  .disc .row{ display:grid; grid-template-columns:120px 1fr; gap:20px; padding:16px 0; border-bottom:1px solid var(--line); }
+  @media(max-width:560px){ .disc .row{ grid-template-columns:1fr; gap:4px; } }
+  .disc .nm{ font-family:'Sora',sans-serif; font-weight:600; color:var(--ink); font-size:15px; }
+  .disc .rs{ font-size:14.5px; color:var(--muted); }
+
+  footer{ padding:50px 0 70px; border-top:1px solid var(--line); text-align:center; }
+  footer p{ font-size:13px; color:var(--faint); margin:0; }
+
+  .note-box{ background:rgba(138,92,242,.07); border:1px solid rgba(138,92,242,.25); border-radius:12px; padding:16px 20px; margin-top:24px; }
+  .note-box p{ font-size:14px; margin:0; color:var(--muted); }
+
+  /* PARA QUÉ — sección de apertura editorial */
+  .purpose{ padding:72px 0 56px; }
+  .purpose .big{
+    font-family:'Sora',sans-serif;
+    font-size:clamp(24px,4.2vw,34px);
+    font-weight:600;
+    line-height:1.32;
+    letter-spacing:-.015em;
+    color:var(--ink);
+  }
+  .purpose .big .hl{
+    background:linear-gradient(115deg,var(--teal),var(--violet));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    font-weight:700;
+  }
+  .purpose .metric-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px; margin-top:40px; }
+  .purpose .metric{ border-left:2px solid var(--teal); padding-left:18px; }
+  .purpose .metric h4{ font-family:'Sora',sans-serif; font-size:16px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+  .purpose .metric p{ font-size:14px; color:var(--muted); margin:0; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="eyebrow">Equipo de producto · Flow</span>
+  <div class="hero-logo">
+    <svg width="200" height="200" viewBox="-180 -180 360 360" role="img" aria-label="Isotipo de Obi">
+      <defs>
+        <linearGradient id="tg" x1="0" y1="0.1" x2="1" y2="0.9">
+          <stop offset="0" stop-color="#21dbaa"/>
+          <stop offset="1" stop-color="#8a5cf2"/>
+        </linearGradient>
+      </defs>
+      <circle cx="0" cy="0" r="118" fill="none" stroke="url(#tg)" stroke-width="60" stroke-linecap="round" stroke-dasharray="566 175" transform="rotate(-118)"/>
+      <path d="M -26 -44 L -26 44 L 52 0 Z" fill="#21dbaa" stroke="#21dbaa" stroke-width="18" stroke-linejoin="round"/>
+      <path d="M0,-1 C0.12,-0.3 0.3,-0.12 1,0 C0.3,0.12 0.12,0.3 0,1 C-0.12,0.3 -0.3,0.12 -1,0 C-0.3,-0.12 -0.12,-0.3 0,-1 Z" transform="translate(96 -106) scale(34)" fill="url(#tg)"/>
+    </svg>
+  </div>
+  <h1>Obi</h1>
+  <p class="tag">El mentor del equipo de producto. Te guía, te ordena la cabeza y te deja a vos tomar las decisiones.</p>
+  <span class="scroll-hint">About Obi ↓</span>
+</div>
+
+<div class="wrap">
+
+  <!-- PARA QUÉ EXISTE -->
+  <section class="purpose" style="border-top:none;">
+    <span class="sec-num">EMPECEMOS POR EL PORQUÉ</span>
+    <p class="big">Hoy gran parte del tiempo del equipo se va en destrabar el arranque: reuniones para definir una iniciativa, búsquedas para encontrar lo que ya existe, idas y vueltas antes de poder diseñar. Obi se ocupa de eso, para que el equipo <span class="hl">llegue más rápido a lo que de verdad suma</span>.</p>
+    <div class="metric-row">
+      <div class="metric">
+        <h4>Mejores especificaciones</h4>
+        <p>Documentos más completos y bien formateados, independientemente de quién los arme.</p>
+      </div>
+      <div class="metric">
+        <h4>Menos tiempo de ciclo</h4>
+        <p>Arrancar una iniciativa deja de ser una búsqueda; el proceso está a un mensaje.</p>
+      </div>
+      <div class="metric">
+        <h4>Más consistencia</h4>
+        <p>El resultado no cambia según quién pregunta y quién está disponible para responder.</p>
+      </div>
+    </div>
+    <div class="note-box">
+      <p>El éxito no se mide en si lo usan. Se mide en si mejoran las especificaciones, bajan los tiempos de ciclo y los documentos quedan más consistentes. Si lo usan todos los días pero nada de eso cambia, no sirvió.</p>
+    </div>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section>
+    <span class="sec-num">01 — QUÉ ES</span>
+    <h2>Un colega, no una herramienta</h2>
+    <p class="lead">Obi es el agente generalista del equipo de producto de Flow.</p>
+    <p>No hace el trabajo por vos. Te da lo que necesitás para que vos puedas hacerlo mejor: te ahorra la fricción de buscar, te ordena la información, te recuerda el proceso y te deja tomar las decisiones que te corresponden. Es el que sabe dónde está todo y adónde derivar.</p>
+  </section>
+
+  <!-- QUÉ SIMBOLIZA -->
+  <section>
+    <span class="sec-num">02 — QUÉ SIMBOLIZA</span>
+    <h2>El mentor que guía sin imponer</h2>
+    <p class="lead">El nombre viene de <strong>Obi-Wan Kenobi</strong>. Y no es un guiño caprichoso: es una declaración de lo que el agente es y, sobre todo, de lo que no es.</p>
+    <p>Obi-Wan no es el héroe de la historia. Es quien forma al héroe. No empuña el sable por Luke ni resuelve la misión en su lugar: le da contexto, le marca el camino, le enseña a usar lo que ya tiene adentro. Aparece en el momento justo, dice lo necesario, y se corre para que el otro crezca.</p>
+    <p>Esa es exactamente la relación que queremos entre el agente y el equipo. Obi no reemplaza al PO ni al PM. No piensa por ellos. <strong>Los hace mejores.</strong></p>
+
+    <div class="attrs">
+      <div class="attr">
+        <div class="n grad-text">01</div>
+        <h3>Sabe más de lo que muestra</h3>
+        <p>Tiene acceso a todo el conocimiento del equipo, pero no te abruma. Te da lo justo, en el momento justo.</p>
+      </div>
+      <div class="attr">
+        <div class="n grad-text">02</div>
+        <h3>Guía, no resuelve</h3>
+        <p>Te acompaña en el proceso y te marca el siguiente paso. La decisión y el trabajo siguen siendo tuyos.</p>
+      </div>
+      <div class="attr">
+        <div class="n grad-text">03</div>
+        <h3>Aparece cuando lo necesitás</h3>
+        <p>Siempre disponible, sin protagonismo. Está ahí cuando lo llamás y se corre cuando ya cumplió.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ EL NOMBRE -->
+  <section>
+    <span class="sec-num">03 — POR QUÉ OBI</span>
+    <h2>Un nombre con historia adentro</h2>
+    <p>Igual que <strong>Solan</strong> (la papa inteligente, del nombre científico <em>Solanum</em>) o <strong>Jade</strong> (el material maleable y resistente), Obi lleva una metáfora adentro que le da profundidad. No es un descriptor funcional: es un nombre con esencia.</p>
+    <div class="cols">
+      <div class="card">
+        <div class="ic">🎯</div>
+        <h3>Encarna el rol exacto</h3>
+        <p>Ningún otro nombre describía con tanta precisión qué tipo de relación queremos: acompañar y potenciar, no entretener ni tecnificar.</p>
+      </div>
+      <div class="card">
+        <div class="ic">💬</div>
+        <h3>Funciona en el uso real</h3>
+        <p>Dos sílabas, termina en vocal, se escribe como suena. "Obi, ayudame con el brief" sale natural. Como @mención en Teams, directo.</p>
+      </div>
+      <div class="card">
+        <div class="ic">✦</div>
+        <h3>Cálido sin ser infantil</h3>
+        <p>Suena a apodo afectuoso, no a bot caricaturesco ni a sistema corporativo frío. Justo el tono que buscábamos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISOTIPO -->
+  <section>
+    <span class="sec-num">04 — EL ISOTIPO</span>
+    <h2>Qué dice el símbolo</h2>
+    <div class="iso-stage">
+      <svg width="220" height="220" viewBox="-180 -180 360 360" role="img" aria-label="Isotipo de Obi con anotaciones">
+        <circle cx="0" cy="0" r="118" fill="none" stroke="url(#tg)" stroke-width="60" stroke-linecap="round" stroke-dasharray="566 175" transform="rotate(-118)"/>
+        <path d="M -26 -44 L -26 44 L 52 0 Z" fill="#21dbaa" stroke="#21dbaa" stroke-width="18" stroke-linejoin="round"/>
+        <path d="M0,-1 C0.12,-0.3 0.3,-0.12 1,0 C0.3,0.12 0.12,0.3 0,1 C-0.12,0.3 -0.3,0.12 -1,0 C-0.3,-0.12 -0.12,-0.3 0,-1 Z" transform="translate(96 -106) scale(34)" fill="url(#tg)"/>
+      </svg>
+      <div class="iso-anno">
+        <div class="item">
+          <span class="dot" style="background:var(--teal)"></span>
+          <div><h4>El play</h4><p>El corazón de Flow: el botón que arranca todo. Obi es el que le da play al proceso del equipo.</p></div>
+        </div>
+        <div class="item">
+          <span class="dot" style="background:linear-gradient(135deg,var(--teal),var(--violet))"></span>
+          <div><h4>El anillo abierto</h4><p>No es un círculo cerrado: queda abierto, en movimiento. Acompaña sin encerrar. El gradiente teal→violeta usa los dos colores de Flow.</p></div>
+        </div>
+        <div class="item">
+          <span class="dot" style="background:var(--violet)"></span>
+          <div><h4>La estrella de cuatro puntas</h4><p>El marcador universal de IA (Gemini, Adobe, Grammarly). Coherente con Jul-IA, señala que Obi es inteligencia, no un botón más.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETA -->
+  <section>
+    <span class="sec-num">05 — PALETA</span>
+    <h2>Colores de Flow, nada inventado</h2>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#21dbaa"></div><div class="meta"><div class="name">Teal</div><div class="hex">#21DBAA</div><div class="role">Principal · el play</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8a5cf2"></div><div class="meta"><div class="name">Violeta</div><div class="hex">#8A5CF2</div><div class="role">Acento · estrella IA</div></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(115deg,#21dbaa,#8a5cf2)"></div><div class="meta"><div class="name">Gradiente</div><div class="hex">Teal → Violeta</div><div class="role">Anillo · firmas</div></div></div>
+      <div class="sw"><div class="chip" style="background:#131315"></div><div class="meta"><div class="name">Negro</div><div class="hex">#131315</div><div class="role">Fondo base</div></div></div>
+    </div>
+    <div class="note-box"><p>Hexes derivados de la entrega de identidad. Confirmar contra el brand kit oficial de Flow (actualizado en diciembre 2025) antes de producción.</p></div>
+  </section>
+
+  <!-- DO / DONT -->
+  <section>
+    <span class="sec-num">06 — USO DEL LOGO</span>
+    <h2>Sí y no</h2>
+    <div class="dd">
+      <div class="dd-col do">
+        <h3><span class="badge">✓</span> Hacer</h3>
+        <ul class="dd-list">
+          <li>Usar el isotipo sobre fondo negro o muy oscuro, que es donde mejor respira.</li>
+          <li>Mantener el gradiente teal→violeta del anillo siempre en la misma dirección.</li>
+          <li>Dejar aire alrededor del símbolo: el espacio libre es parte del logo.</li>
+          <li>Usar la versión de un solo color cuando el contexto lo pida (todo teal o todo blanco).</li>
+        </ul>
+      </div>
+      <div class="dd-col dont">
+        <h3><span class="badge">✕</span> Evitar</h3>
+        <ul class="dd-list">
+          <li>Deformar, rotar o cambiar las proporciones del play o del anillo.</li>
+          <li>Cambiar los colores por fuera de la paleta de Flow.</li>
+          <li>Sumar sombras, brillos o efectos 3D al símbolo.</li>
+          <li>Cerrar el anillo: la apertura es intencional, comunica acompañar sin encerrar.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOZ -->
+  <section>
+    <span class="sec-num">07 — TONO DE VOZ</span>
+    <h2>Cómo habla Obi</h2>
+    <p>Obi habla como un colega del equipo: español rioplatense, informal y directo. Tutea o vosea con naturalidad, usa "che" sin forzarlo. Es claro y conciso, cercano sin ser servil, y nunca suena a software.</p>
+    <div class="voice">
+      <div class="vrow">
+        <div class="bubble good"><span class="lbl">Así sí</span>Dale, te armo el brief. Antes necesito una cosa: ¿ya tenés definido el problema de usuario o arrancamos por ahí?</div>
+        <div class="bubble bad"><span class="lbl">Así no</span>¡Excelente pregunta! Estaré encantado de asistirte en la generación de tu documento de brief. Para comenzar, procederé a solicitarte la siguiente información...</div>
+      </div>
+      <div class="vrow">
+        <div class="bubble good"><span class="lbl">Así sí</span>Ese ticket está en "En progreso" desde hace tres sprints. ¿Lo querés revisar o lo dejamos así?</div>
+        <div class="bubble bad"><span class="lbl">Así no</span>He detectado que el ticket FPR-1234 presenta un estado de progreso prolongado. ¿Desea que ejecute alguna acción al respecto?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO -->
+  <section>
+    <span class="sec-num">08 — QUÉ LE PEDÍS</span>
+    <h2>Obi en el día a día</h2>
+    <p>Obi vive en Microsoft Teams y conoce el proceso de Flow, la estrategia, los OKRs y los tickets de Jira. Estos son algunos de los pedidos típicos:</p>
+    <div class="uses">
+      <div class="use"><p class="q">"Obi, armame el brief de la iniciativa de onboarding"</p><p class="a">Coaching del proceso y generación del documento cuando el checklist está completo.</p></div>
+      <div class="use"><p class="q">"¿Qué insights tenemos sobre la home?"</p><p class="a">Deriva al agente de UX Research y te trae los estudios y testimonios.</p></div>
+      <div class="use"><p class="q">"Pasame los tickets sin bloque del Q2"</p><p class="a">Lee Jira por filtro y te devuelve la lista ordenada.</p></div>
+      <div class="use"><p class="q">"Redactame el post de Slack del release"</p><p class="a">Genera el texto con el tono del equipo, listo para publicar.</p></div>
+      <div class="use"><p class="q">"Quiero consultar a Julia sobre este diseño"</p><p class="a">Conecta con la protopersona para feedback de perfil real.</p></div>
+      <div class="use"><p class="q">"¿En qué etapa del proceso estoy?"</p><p class="a">Te ubica en las 4 etapas de Flow y te dice qué falta para avanzar.</p></div>
+    </div>
+  </section>
+
+  <!-- PROCESO / DESCARTADOS -->
+  <section>
+    <span class="sec-num">09 — EL CAMINO</span>
+    <h2>Cómo llegamos a Obi</h2>
+    <p>Obi no salió de la nada. Recorrimos varios territorios — el play como corazón de Flow, el mundo del entretenimiento, conceptos con raíz, mitología — y descartamos decenas de opciones por razones concretas. Estos son los que más cerca estuvieron:</p>
+    <div class="disc">
+      <div class="row"><div class="nm">Plei</div><div class="rs">"Play" en fonética rioplatense. Guiño directo a Flow, pero es un descriptor de marca, no un nombre con esencia. Le faltaba la profundidad de Jade y Solan.</div></div>
+      <div class="row"><div class="nm">Flai</div><div class="rs">Flow + AI. El más claro funcionalmente, pero esa misma claridad lo vuelve plano. Es un acrónimo, no abre ninguna historia.</div></div>
+      <div class="row"><div class="nm">Flux</div><div class="rs">Sólido (Flow mutado, movimiento), pero quemado como nombre de producto tech.</div></div>
+      <div class="row"><div class="nm">Trama</div><div class="rs">Español puro, cero ambigüedad, linda metáfora. No terminó de prender; le faltaba energía.</div></div>
+      <div class="row"><div class="nm">Binge</div><div class="rs">Territorio streaming, mucha energía. Carga con la idea de exceso, no de colega confiable.</div></div>
+      <div class="row"><div class="nm">Zap</div><div class="rs">Energía y velocidad, pero sonaba demasiado a "SAP" en una empresa de telco.</div></div>
+      <div class="row"><div class="nm">Delta</div><div class="rs">El play es un triángulo, un delta: símbolo de cambio y confluencia. Perdió contra Obi en calidez.</div></div>
+    </div>
+  </section>
+
+  <!-- ECOSISTEMA -->
+  <section>
+    <span class="sec-num">10 — ECOSISTEMA</span>
+    <h2>Dónde vive Obi</h2>
+    <p>Obi es el punto de entrada único del equipo de producto: el agente generalista al que el equipo le habla primero, y el que sabe adónde derivar. Convive con las protopersonas y con el design system del equipo.</p>
+    <div class="eco">
+      <span class="pill self">Obi · generalista</span>
+      <span class="pill">Jul-IA · protopersona</span>
+      <span class="pill">Sof-IA · protopersona</span>
+      <span class="pill">Miguel IA · protopersona</span>
+      <span class="pill">Jade · design system</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Obi · About &amp; manual de marca · Equipo de producto Flow · Documento de trabajo</p>
+</footer>
+
+</body>
+</html>
